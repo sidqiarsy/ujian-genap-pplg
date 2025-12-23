@@ -1,0 +1,62 @@
+<hatml>
+    <head><title>ujian</title></head>
+    <body>
+        <script>
+let jenisbaju = ["kaos", "jaket"];
+let hargasatuan = [30000, 75000];
+let jumlahbeli = [30, 30];
+let sesi = ["siang", "malam"];
+
+let totaltransaksi = 0;
+let totaldiskonsemua = 0;
+let totalpendapatan = 0;
+
+for (let i = 0; i < jenisbaju.length; i++) {
+
+    let jb = jenisbaju[i];
+    let harga = hargasatuan[i];
+    let jumlah = jumlahbeli[i];
+    let waktu = sesi[i];
+
+    let totalharga = harga * jumlah;
+    let diskon = 0;
+
+    if (waktu === "pagi") {
+        if (jumlah >= 10 && jumlah < 20) {
+			diskon = (10 * harga * 0.05) + ((jumlah - 10) * harga * 0.10);
+            
+        } else if (jumlah > 20) {
+			diskon = (10 * harga * 0.10) + (10 * harga * 0.12) + ((jumlah - 20) * harga * 0.22);
+            
+        }
+    } else if (waktu === "malam") {
+        if (jumlah >= 10 && jumlah < 20) {
+            diskon = (10 * harga * 0.05) + ((jumlah - 10) * harga * 0.10);
+        } else if (jumlah > 20) {
+			diskon = (10 * harga * 0.2) + (10 * harga * 0.25) + ((jumlah - 20) * harga * 0.30);
+        }
+    }
+
+    let totalbayar = totalharga - diskon;
+
+    totaltransaksi++;
+    totaldiskonsemua += diskon;
+    totalpendapatan += totalbayar;
+
+    console.log("jenis baju:", jb);
+    console.log("harga satuan:", harga);
+    console.log("jumlah beli:", jumlah);
+    console.log("sesi:", waktu);
+    console.log("total harga:", totalharga);
+    console.log("diskon:", diskon);
+    console.log("total bayar:", totalbayar);
+    console.log("---------------------");
+}
+
+console.log("total transaksi:", totaltransaksi);
+console.log("total diskon:", totaldiskonsemua);
+console.log("total pendapatan:", totalpendapatan);
+console.log("rata rata pendapatan:", totalpendapatan / totaltransaksi);
+        </script>
+</body>
+</hatml>

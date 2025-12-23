@@ -1,7 +1,7 @@
 <hatml>
-    <head><title>ujian</title></head>
-    <body>
-        <script>
+<head><title>ujian</title></head>
+<body>
+<script>
 let jenisbaju = ["kaos", "jaket"];
 let hargasatuan = [30000, 75000];
 let jumlahbeli = [30, 30];
@@ -13,7 +13,9 @@ let totalpendapatan = 0;
 
 for (let i = 0; i < jenisbaju.length; i++) {
 
-    let jb = jenisbaju[i];
+    totaltransaksi++;
+
+    let baju = jenisbaju[i];
     let harga = hargasatuan[i];
     let jumlah = jumlahbeli[i];
     let waktu = sesi[i];
@@ -37,13 +39,13 @@ for (let i = 0; i < jenisbaju.length; i++) {
         }
     }
 
+    totaldiskonsemua += diskon;
+
     let totalbayar = totalharga - diskon;
 
-    totaltransaksi++;
-    totaldiskonsemua += diskon;
     totalpendapatan += totalbayar;
 
-    console.log("jenis baju:", jb);
+    console.log("jenis baju:", baju);
     console.log("harga satuan:", harga);
     console.log("jumlah beli:", jumlah);
     console.log("sesi:", waktu);
@@ -57,6 +59,6 @@ console.log("total transaksi:", totaltransaksi);
 console.log("total diskon:", totaldiskonsemua);
 console.log("total pendapatan:", totalpendapatan);
 console.log("rata rata pendapatan:", totalpendapatan / totaltransaksi);
-        </script>
+</script>
 </body>
 </hatml>
